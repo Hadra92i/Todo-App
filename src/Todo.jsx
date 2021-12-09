@@ -27,13 +27,13 @@ const Todo = ({ id, name, isCompleted }) => {
     await updateDoc(todoToUpdate, {
       isCompleted: !isCompleted,
     });
-    Swal.fire("Success", "Task completed !", "success");
+    Swal.fire("Succès", "Tache complée avec succès !", "success");
   };
 
   const deleteTodo = async () => {
     try {
       await deleteDoc(doc(db, "todos", id));
-      Swal.fire("Success", "Task deleted successfully !", "success");
+      Swal.fire("Succès", "Tache supprimée avec succès !", "success");
     } catch (e) {
       console.log(e);
     }
@@ -45,9 +45,9 @@ const Todo = ({ id, name, isCompleted }) => {
         <p>{name}</p>
         <p style={{ fontSize: "12.5px" }}>
           {isCompleted ? (
-            <span style={{ color: "green" }}>Completed</span>
+            <span style={{ color: "green" }}>Complétée</span>
           ) : (
-            <span style={{ color: "blueviolet" }}>In Progress</span>
+            <span style={{ color: "blueviolet" }}>En cours</span>
           )}
         </p>
       </div>

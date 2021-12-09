@@ -47,7 +47,7 @@ function App() {
 
   return (
     <Container>
-      <Title>Todo List Application With React JS & Firebase</Title>
+      <Title>Application de To do List Avec React JS & Firebase</Title>
       <AddTodo />
       {
         todos.map(todo => <Todo key={todo.key} id={todo.key} name={todo.name} isCompleted={todo.isCompleted} />)

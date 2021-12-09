@@ -10,13 +10,13 @@ const Form = styled.form``;
 const Input = styled.input`
   padding: 1rem;
   text-indent: 2px;
-  width: 80%;
+  width: 75%;
   border: none;
   outline: none;
   margin-left: 15px;
   border-radius: 5px;
   ${mobile({
-    width: "71%",
+    width: "64%",
     marginLeft: "12px",
     padding: "1rem 1.5rem",
     textIndent: "0px",
@@ -48,7 +48,7 @@ const AddTodo = () => {
     e.preventDefault();
     try {
       if (todo === "") {
-        Swal.fire("Error", "Please enter task to do !", "error");
+        Swal.fire("Erreur", "Veillez saisir une tache !", "error");
       } else {
         const newTodo = await addDoc(collection(db, "todos"), {
           name: todo,
@@ -56,7 +56,7 @@ const AddTodo = () => {
           timestamp: serverTimestamp(),
         });
         setTodoText("");
-        Swal.fire("Success", "The new task is added successfully !", "success");
+        Swal.fire("Succès", "La tache à été ajoutée avec succès !", "success");
       }
     } catch (e) {
       console.log(e);
@@ -67,11 +67,11 @@ const AddTodo = () => {
     <Form>
       <Input
         type="text"
-        placeholder="Enter The New Todo"
+        placeholder="Saisir une nouvelle tache à faire"
         value={todo}
         onChange={(e) => setTodoText(e.target.value)}
       ></Input>
-      <Button onClick={createTodo}>Add</Button>
+      <Button onClick={createTodo}>Ajouter</Button>
     </Form>
   );
 };
